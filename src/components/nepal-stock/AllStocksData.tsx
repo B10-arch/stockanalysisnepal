@@ -13,19 +13,34 @@ const AllStocksData = () => {
   const [sortBy, setSortBy] = useState('marketCap');
 
   const stocksData = [
-    { symbol: 'NABIL', name: 'Nabil Bank Ltd.', sector: 'Banking', price: 1245, change: 8.5, changePercent: 0.69, volume: 12345, marketCap: '45.2B', pe: 15.4 },
-    { symbol: 'SCBNL', name: 'Standard Chartered Bank Nepal Ltd.', sector: 'Banking', price: 458, change: -2.5, changePercent: -0.54, volume: 8967, marketCap: '23.8B', pe: 12.8 },
-    { symbol: 'EBL', name: 'Everest Bank Ltd.', sector: 'Banking', price: 678, change: 15.2, changePercent: 2.29, volume: 15432, marketCap: '38.7B', pe: 18.2 },
-    { symbol: 'KBL', name: 'Kumari Bank Ltd.', sector: 'Banking', price: 234, change: -1.8, changePercent: -0.76, volume: 9876, marketCap: '12.4B', pe: 14.6 },
-    { symbol: 'UPPER', name: 'Upper Tamakosi Hydro Power Ltd.', sector: 'Hydropower', price: 456, change: 12.4, changePercent: 2.80, volume: 23456, marketCap: '67.8B', pe: 22.1 },
-    { symbol: 'CHCL', name: 'Chilime Hydro Company Ltd.', sector: 'Hydropower', price: 567, change: -8.9, changePercent: -1.54, volume: 18765, marketCap: '34.5B', pe: 19.7 },
-    { symbol: 'NLICL', name: 'Nepal Life Insurance Co. Ltd.', sector: 'Insurance', price: 890, change: 25.6, changePercent: 2.96, volume: 7654, marketCap: '28.9B', pe: 16.8 },
-    { symbol: 'NICL', name: 'Nepal Insurance Co. Ltd.', sector: 'Insurance', price: 432, change: -3.2, changePercent: -0.73, volume: 5432, marketCap: '15.7B', pe: 13.4 },
-    { symbol: 'HGI', name: 'Himalayan General Insurance', sector: 'Insurance', price: 321, change: 7.8, changePercent: 2.49, volume: 4321, marketCap: '8.9B', pe: 11.2 },
-    { symbol: 'CFCL', name: 'Central Finance Co. Ltd.', sector: 'Finance', price: 198, change: -5.4, changePercent: -2.65, volume: 3210, marketCap: '6.7B', pe: 9.8 },
+    { symbol: 'HDHPC', name: 'Himalayan Distillery Ltd.', sector: 'Manufacturing', price: 204.00, change: 0.63, changePercent: 0.31, volume: 63785, marketCap: '12.8B', pe: 15.4 },
+    { symbol: 'RHPL', name: 'Raghu Hydro Power Ltd.', sector: 'Hydropower', price: 388.00, change: 5.66, changePercent: 1.48, volume: 43191, marketCap: '18.5B', pe: 22.1 },
+    { symbol: 'MANDU', name: 'Mandu Hydro Power Ltd.', sector: 'Hydropower', price: 858.00, change: -4.66, changePercent: -0.54, volume: 578, marketCap: '45.2B', pe: 18.9 },
+    { symbol: 'MHNL', name: 'Mai Hydro Nepal Ltd.', sector: 'Hydropower', price: 255.30, change: -2.66, changePercent: -1.03, volume: 15092, marketCap: '8.9B', pe: 16.2 },
+    { symbol: 'RFPL', name: 'Radhi Forestry Products Ltd.', sector: 'Manufacturing', price: 621.00, change: 28.17, changePercent: 4.75, volume: 110919, marketCap: '24.1B', pe: 19.7 },
+    { symbol: 'ILI', name: 'IME Life Insurance Ltd.', sector: 'Insurance', price: 448.30, change: 1.92, changePercent: 0.43, volume: 11355, marketCap: '15.6B', pe: 14.8 },
+    { symbol: 'AKPL', name: 'Arun Kabeli Power Ltd.', sector: 'Hydropower', price: 288.00, change: 17.81, changePercent: 6.59, volume: 1604735, marketCap: '78.4B', pe: 25.3 },
+    { symbol: 'USLB', name: 'United Savings & Laghubitta', sector: 'Finance', price: 1920.00, change: -41.56, changePercent: -2.12, volume: 3324, marketCap: '95.7B', pe: 28.4 },
+    { symbol: 'HLI', name: 'Himalayan Life Insurance', sector: 'Insurance', price: 403.00, change: 2.76, changePercent: 0.69, volume: 97890, marketCap: '18.9B', pe: 16.5 },
+    { symbol: 'NABIL', name: 'Nabil Bank Ltd.', sector: 'Banking', price: 492.30, change: 1.37, changePercent: 0.28, volume: 17834, marketCap: '65.2B', pe: 15.4 },
+    { symbol: 'SCBNL', name: 'Standard Chartered Bank Nepal', sector: 'Banking', price: 613.00, change: 0.15, changePercent: 0.02, volume: 5371, marketCap: '48.7B', pe: 12.8 },
+    { symbol: 'EBL', name: 'Everest Bank Ltd.', sector: 'Banking', price: 651.00, change: 5.11, changePercent: 0.79, volume: 64325, marketCap: '52.3B', pe: 18.2 },
+    { symbol: 'KBL', name: 'Kumari Bank Ltd.', sector: 'Banking', price: 209.70, change: 1.48, changePercent: 0.71, volume: 165279, marketCap: '28.4B', pe: 14.6 },
+    { symbol: 'UPPER', name: 'Upper Tamakosi Hydro Power', sector: 'Hydropower', price: 200.00, change: 0.25, changePercent: 0.13, volume: 80329, marketCap: '125.8B', pe: 22.1 },
+    { symbol: 'CHCL', name: 'Chilime Hydro Company Ltd.', sector: 'Hydropower', price: 564.00, change: 12.34, changePercent: 2.24, volume: 363291, marketCap: '89.5B', pe: 19.7 },
+    { symbol: 'NLICL', name: 'Nepal Life Insurance Co. Ltd.', sector: 'Insurance', price: 600.00, change: 4.90, changePercent: 0.82, volume: 11170, marketCap: '42.8B', pe: 16.8 },
+    { symbol: 'NICL', name: 'Nepal Insurance Co. Ltd.', sector: 'Insurance', price: 779.00, change: 14.77, changePercent: 1.93, volume: 12277, marketCap: '35.7B', pe: 13.4 },
+    { symbol: 'CFCL', name: 'Central Finance Co. Ltd.', sector: 'Finance', price: 533.00, change: 24.08, changePercent: 4.73, volume: 14605, marketCap: '18.7B', pe: 9.8 },
+    { symbol: 'NHPC', name: 'National Hydro Power Co.', sector: 'Hydropower', price: 221.50, change: 2.01, changePercent: 0.92, volume: 77362, marketCap: '156.4B', pe: 21.5 },
+    { symbol: 'HIDCL', name: 'Hydroelectricity Investment', sector: 'Hydropower', price: 317.20, change: 6.72, changePercent: 2.16, volume: 648146, marketCap: '198.7B', pe: 24.8 },
+    { symbol: 'NTC', name: 'Nepal Telecom Company', sector: 'Communication', price: 869.00, change: 30.71, changePercent: 3.66, volume: 410784, marketCap: '425.6B', pe: 18.9 },
+    { symbol: 'SANIMA', name: 'Sanima Bank Ltd.', sector: 'Banking', price: 316.00, change: 4.47, changePercent: 1.43, volume: 40640, marketCap: '38.9B', pe: 16.2 },
+    { symbol: 'GBIME', name: 'Global IME Bank Ltd.', sector: 'Banking', price: 234.00, change: -0.16, changePercent: -0.07, volume: 108887, marketCap: '45.8B', pe: 15.7 },
+    { symbol: 'MBL', name: 'Muktinath Bikas Bank', sector: 'Banking', price: 218.00, change: 1.52, changePercent: 0.70, volume: 97869, marketCap: '32.4B', pe: 14.9 },
+    { symbol: 'NBL', name: 'Nepal Bank Ltd.', sector: 'Banking', price: 253.50, change: -0.60, changePercent: -0.24, volume: 33873, marketCap: '28.7B', pe: 13.8 },
   ];
 
-  const sectors = ['all', 'Banking', 'Hydropower', 'Insurance', 'Finance', 'Hotels', 'Manufacturing'];
+  const sectors = ['all', 'Banking', 'Hydropower', 'Insurance', 'Finance', 'Manufacturing', 'Communication'];
 
   const filteredStocks = stocksData.filter(stock => {
     const matchesSearch = stock.symbol.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -40,8 +55,8 @@ const AllStocksData = () => {
       'Hydropower': 'bg-green-500/20 text-green-400',
       'Insurance': 'bg-purple-500/20 text-purple-400',
       'Finance': 'bg-yellow-500/20 text-yellow-400',
-      'Hotels': 'bg-pink-500/20 text-pink-400',
       'Manufacturing': 'bg-orange-500/20 text-orange-400',
+      'Communication': 'bg-pink-500/20 text-pink-400',
     };
     return colors[sector as keyof typeof colors] || 'bg-gray-500/20 text-gray-400';
   };
@@ -53,7 +68,7 @@ const AllStocksData = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Filter className="h-5 w-5 text-primary" />
-            All Stocks - Nepal Stock Exchange
+            All Stocks - Nepal Stock Exchange (Live Data)
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -104,8 +119,8 @@ const AllStocksData = () => {
                   <TableHead>Symbol</TableHead>
                   <TableHead>Company Name</TableHead>
                   <TableHead>Sector</TableHead>
-                  <TableHead className="text-right">Price (NPR)</TableHead>
-                  <TableHead className="text-right">Change</TableHead>
+                  <TableHead className="text-right">LTP (NPR)</TableHead>
+                  <TableHead className="text-right">Point Change</TableHead>
                   <TableHead className="text-right">% Change</TableHead>
                   <TableHead className="text-right">Volume</TableHead>
                   <TableHead className="text-right">Market Cap</TableHead>
