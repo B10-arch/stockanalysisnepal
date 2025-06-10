@@ -9,6 +9,52 @@ const TechnicalAnalysis = () => {
   const [selectedStock, setSelectedStock] = useState('NABIL');
   const [timeframe, setTimeframe] = useState('1D');
 
+  // Comprehensive stock list for Nepal Stock Exchange
+  const stockOptions = [
+    // Commercial Banks
+    { value: 'NABIL', label: 'NABIL - Nabil Bank Limited', sector: 'Commercial Banks' },
+    { value: 'SCBNL', label: 'SCBNL - Standard Chartered Bank Nepal', sector: 'Commercial Banks' },
+    { value: 'EBL', label: 'EBL - Everest Bank Limited', sector: 'Commercial Banks' },
+    { value: 'KBL', label: 'KBL - Kumari Bank Limited', sector: 'Commercial Banks' },
+    { value: 'BOKL', label: 'BOKL - Bank of Kathmandu Limited', sector: 'Commercial Banks' },
+    { value: 'NICA', label: 'NICA - NIC Asia Bank Limited', sector: 'Commercial Banks' },
+    { value: 'HBL', label: 'HBL - Himalayan Bank Limited', sector: 'Commercial Banks' },
+    { value: 'NBL', label: 'NBL - Nepal Bank Limited', sector: 'Commercial Banks' },
+    { value: 'SANIMA', label: 'SANIMA - Sanima Bank Limited', sector: 'Commercial Banks' },
+    { value: 'PCBL', label: 'PCBL - Prime Commercial Bank Limited', sector: 'Commercial Banks' },
+    
+    // Development Banks
+    { value: 'KSBBL', label: 'KSBBL - Karnali Province Development Bank', sector: 'Development Banks' },
+    { value: 'SHINE', label: 'SHINE - Shine Resunga Development Bank', sector: 'Development Banks' },
+    { value: 'MKJC', label: 'MKJC - Muktinath Krishi Company Limited', sector: 'Development Banks' },
+    
+    // Hydropower
+    { value: 'UPPER', label: 'UPPER - Upper Tamakoshi Hydropower', sector: 'Hydropower' },
+    { value: 'CHCL', label: 'CHCL - Chilime Hydropower Company', sector: 'Hydropower' },
+    { value: 'NHPC', label: 'NHPC - National Hydropower Company', sector: 'Hydropower' },
+    { value: 'AKPL', label: 'AKPL - Arun Kabeli Power Limited', sector: 'Hydropower' },
+    { value: 'API', label: 'API - API Power Company Limited', sector: 'Hydropower' },
+    { value: 'BPCL', label: 'BPCL - Butwal Power Company Limited', sector: 'Hydropower' },
+    
+    // Manufacturing
+    { value: 'UNL', label: 'UNL - Unilever Nepal Limited', sector: 'Manufacturing' },
+    { value: 'SLCF', label: 'SLCF - Shree Lakshmi Cement Factory', sector: 'Manufacturing' },
+    { value: 'CHL', label: 'CHL - Chaudhary Group Holdings', sector: 'Manufacturing' },
+    
+    // Insurance
+    { value: 'NICL', label: 'NICL - Nepal Insurance Company Limited', sector: 'Non-Life Insurance' },
+    { value: 'ULIL', label: 'ULIL - United Life Insurance Limited', sector: 'Life Insurance' },
+    { value: 'NLICL', label: 'NLICL - Nepal Life Insurance Company', sector: 'Life Insurance' },
+    
+    // Hotels & Tourism
+    { value: 'OHL', label: 'OHL - Oriental Hotel Limited', sector: 'Hotels & Tourism' },
+    { value: 'TRH', label: 'TRH - Taragaon Regency Hotel', sector: 'Hotels & Tourism' },
+    
+    // Finance Companies
+    { value: 'GUFL', label: 'GUFL - Goodwill Finance Limited', sector: 'Finance' },
+    { value: 'JFL', label: 'JFL - Janaki Finance Limited', sector: 'Finance' },
+  ];
+
   // Mock candlestick data
   const chartData = [
     { date: '9:30', open: 1200, high: 1250, low: 1180, close: 1245, volume: 15000 },
@@ -32,6 +78,8 @@ const TechnicalAnalysis = () => {
     { name: 'Stochastic', value: '75.2', signal: 'Overbought', color: 'text-red-500' },
   ];
 
+  const selectedStockInfo = stockOptions.find(stock => stock.value === selectedStock);
+
   return (
     <div className="space-y-6">
       {/* Stock Selection and Controls */}
@@ -44,15 +92,18 @@ const TechnicalAnalysis = () => {
             </CardTitle>
             <div className="flex gap-2">
               <Select value={selectedStock} onValueChange={setSelectedStock}>
-                <SelectTrigger className="w-32">
+                <SelectTrigger className="w-48">
                   <SelectValue placeholder="Select Stock" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="NABIL">NABIL</SelectItem>
-                  <SelectItem value="SCBNL">SCBNL</SelectItem>
-                  <SelectItem value="EBL">EBL</SelectItem>
-                  <SelectItem value="KBL">KBL</SelectItem>
-                  <SelectItem value="BOKL">BOKL</SelectItem>
+                <SelectContent className="max-h-80">
+                  {stockOptions.map((stock) => (
+                    <SelectItem key={stock.value} value={stock.value}>
+                      <div className="flex flex-col">
+                        <span className="font-medium">{stock.value}</span>
+                        <span className="text-xs text-muted-foreground">{stock.sector}</span>
+                      </div>
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
               <Select value={timeframe} onValueChange={setTimeframe}>
@@ -78,6 +129,11 @@ const TechnicalAnalysis = () => {
               <span>NPR 1,245.00</span>
               <span className="text-green-500">+15.00 (+1.22%)</span>
               <span>Vol: 45,678</span>
+              {selectedStockInfo && (
+                <span className="text-xs bg-primary/20 px-2 py-1 rounded">
+                  {selectedStockInfo.sector}
+                </span>
+              )}
             </div>
           </div>
           
