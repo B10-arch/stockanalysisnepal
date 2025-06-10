@@ -9,6 +9,42 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      ipo_announcements: {
+        Row: {
+          announcement_date: string
+          company_name: string
+          created_at: string
+          details: string | null
+          id: string
+          status: string
+          title: string
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          announcement_date: string
+          company_name: string
+          created_at?: string
+          details?: string | null
+          id?: string
+          status?: string
+          title: string
+          type?: string
+          updated_at?: string
+        }
+        Update: {
+          announcement_date?: string
+          company_name?: string
+          created_at?: string
+          details?: string | null
+          id?: string
+          status?: string
+          title?: string
+          type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       market_overview: {
         Row: {
           created_at: string
