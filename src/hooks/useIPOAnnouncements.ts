@@ -7,8 +7,8 @@ export interface IPOAnnouncement {
   company_name: string;
   title: string;
   announcement_date: string;
-  status: 'announced' | 'open' | 'closed' | 'approved' | 'closing';
-  type: 'ipo' | 'rights' | 'fpo';
+  status: string;
+  type: string;
   details: string | null;
   created_at: string;
   updated_at: string;
